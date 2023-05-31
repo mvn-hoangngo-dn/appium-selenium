@@ -200,12 +200,13 @@ internal open class AppiumController {
     private fun defaultAndroidParameters(): Map<String, String> {
         val parameters: MutableMap<String, String> = HashMap()
         parameters[MobileCapabilityType.PLATFORM_NAME] = "android"
-        parameters[MobileCapabilityType.DEVICE_NAME] = "SamSung S8"
+        parameters[MobileCapabilityType.DEVICE_NAME] = "SamSung Galaxy"
         parameters[MobileCapabilityType.PLATFORM_VERSION] = "11"
+        parameters.put(MobileCapabilityType.UDID, "R58N22PKRQV")
         parameters[MobileCapabilityType.AUTOMATION_NAME] = "UiAutomator2"
-        parameters[AndroidMobileCapabilityType.APP_PACKAGE] = "vn.asiantech.lifestyle.it"
-        parameters[AndroidMobileCapabilityType.APP_ACTIVITY] = "jp.co.eposcard.epossupportapp.ui.mock.MockUserActivity"
-        parameters[MobileCapabilityType.APP] = "/appfile/android/maruiMockDev.apk"
+        parameters[AndroidMobileCapabilityType.APP_PACKAGE] = "com.wdiodemoapp"
+        parameters[AndroidMobileCapabilityType.APP_ACTIVITY] = "com.wdiodemoapp.MainActivity"
+        parameters[MobileCapabilityType.APP] = "/appfile/android/Android-NativeDemoApp-0.4.0.apk"
         parameters["server"] = "http://127.0.0.1:4723/wd/hub"
         return parameters
     }
@@ -214,7 +215,6 @@ internal open class AppiumController {
         val parameters: MutableMap<String, String> = HashMap()
         parameters[MobileCapabilityType.PLATFORM_NAME] = "ios"
         parameters[MobileCapabilityType.DEVICE_NAME] = "iPhone 12"
-//        parameters[IOSMobileCapabilityType.XCODE_ORG_ID] = "G72ZCJZ827"
         parameters[IOSMobileCapabilityType.XCODE_SIGNING_ID] = "iPhone Developer"
         parameters[MobileCapabilityType.PLATFORM_VERSION] = "14.5"
 //        parameters[MobileCapabilityType.UDID] = "00008101-000600E62EB9003A"

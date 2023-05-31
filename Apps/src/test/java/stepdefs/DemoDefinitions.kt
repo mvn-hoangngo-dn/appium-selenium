@@ -39,13 +39,14 @@ class DemoDefinitions : BaseDefinitions() {
             homePage?.open()
         }
         Then("Move to [Home Page] screen successfully") {
-            Assert.assertTrue(homePage?.isPageDisplayed()?: false)
+            Thread.sleep(2000)
+            Assert.assertTrue(homePage?.waitForPageDisplayed()?.isPageDisplayed()?: false)
         }
         When("Click Drag menu") {
             homePage?.clickDragMenu()
         }
         And("Move to [Drag] screen successfully") {
-            Assert.assertTrue(dragPage?.isPageDisplayed()?: false)
+            Assert.assertTrue(dragPage?.waitForPageDisplayed()?.isPageDisplayed()?: false)
         }
         And("Drag and drop image") {
             dragPage?.dragAndDrop()

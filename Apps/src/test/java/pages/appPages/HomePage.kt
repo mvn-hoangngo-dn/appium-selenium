@@ -7,12 +7,12 @@ import io.appium.java_client.pagefactory.iOSFindBy
 
 class HomePage: BasePage<HomePage>() {
 
-    @AndroidFindBy(id = "WEBDRIVER")
+    @AndroidFindBy(xpath = "//*[@text='WEBDRIVER']")
     @iOSFindBy(id = "WEBDRIVER")
     private lateinit var txtTitle: MobileElement
 
-    @AndroidFindBy(accessibility = "Drag")
-    @iOSFindBy(accessibility = "Drag")
+    @AndroidFindBy(xpath = "//*[@text='Drag']")
+    @iOSFindBy(id = "Drag")
     private lateinit var dragMenu: MobileElement
 
 
@@ -24,11 +24,10 @@ class HomePage: BasePage<HomePage>() {
         resetApplication()
         removeApp()
         launchApp()
-        waitForPageDisplayed()
         return this
     }
 
-    private fun waitForPageDisplayed(): HomePage{
+    fun waitForPageDisplayed(): HomePage{
         waitForElementDisplay(txtTitle)
         return this
     }

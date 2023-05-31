@@ -11,32 +11,32 @@ import java.time.Duration
 
 class DragPage : BasePage<DragPage>() {
 
-    @AndroidFindBy(id = "Drag and Drop")
+    @AndroidFindBy(xpath = "//*[@text='Drag and Drop']")
     @iOSFindBy(id = "Drag and Drop")
     private lateinit var txtTitle: MobileElement
 
-    @AndroidFindBy(id = "drag-c1")
-    @iOSFindBy(id = "drag-c1")
+    @AndroidFindBy(accessibility = "drag-c1")
+    @iOSFindBy(accessibility = "drag-c1")
     private lateinit var dragC1: MobileElement
 
-    @AndroidFindBy(id = "drop-c1")
-    @iOSFindBy(id = "drop-c1")
+    @AndroidFindBy(accessibility = "drop-c1")
+    @iOSFindBy(accessibility = "drop-c1")
     private lateinit var dropC1: MobileElement
 
-    @AndroidFindBy(id = "drag-l1")
-    @iOSFindBy(id = "drag-l1")
+    @AndroidFindBy(accessibility = "drag-l1")
+    @iOSFindBy(accessibility = "drag-l1")
     private lateinit var dragL1: MobileElement
 
-    @AndroidFindBy(id = "drop-l1")
-    @iOSFindBy(id = "drop-l1")
+    @AndroidFindBy(accessibility = "drop-l1")
+    @iOSFindBy(accessibility = "drop-l1")
     private lateinit var dropL1: MobileElement
 
-    @AndroidFindBy(id = "drag-c3")
-    @iOSFindBy(id = "drag-c3")
+    @AndroidFindBy(accessibility = "drag-c3")
+    @iOSFindBy(accessibility = "drag-c3")
     private lateinit var dragC3: MobileElement
 
-    @AndroidFindBy(id = "drop-c3")
-    @iOSFindBy(id = "drop-c3")
+    @AndroidFindBy(accessibility = "drop-c3")
+    @iOSFindBy(accessibility = "drop-c3")
     private lateinit var dropC3: MobileElement
 
     override fun isPageDisplayed(): Boolean? {
