@@ -59,7 +59,6 @@ class DragPage : BasePage<DragPage>() {
         return this
     }
 
-
     private fun dragAction(e1: MobileElement, e2: MobileElement) {
         getDriver()?.let {
             PlatformTouchAction(it).longPress(PointOption.point(e1.location.x, e1.location.y))
