@@ -1,0 +1,20 @@
+<!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd" >
+<suite name="Android Test Suite" verbose="1">
+    <parameter name="server" value="http://118.69.61.190:4444/wd/hub"/>
+    <test name="Android Test" enabled="true">
+        <parameter name="platformName" value="android"/>
+        <parameter name="automationName" value="UiAutomator2"/>
+        <parameter name="deviceName" value="Galaxy"/>
+        <parameter name="platformVersion" value="11"/>
+        <parameter name="appWaitDuration" value="30000"/>
+        <parameter name="udid" value="R58N22PKRQV"/>
+        <parameter name="appActivity" value="jp.co.lc.platform.ui.splash.DeepLinkActivity"/>
+        <parameter name="appPackage" value="jp.co.lc.karadakawarunavi"/>
+        <parameter name="app"
+                   value="https://link&amp;com:abcd1234!@appium.kawaru.jp/uploads/production_jp.co.lc.karadakawarunavi_v6.1.9.apk"/>
+        <parameter name="noReset" value="false"/>
+        <classes>
+            <class name="stepdefs.testRunner.TestRunner"/>
+        </classes>
+    </test>
+</suite>
