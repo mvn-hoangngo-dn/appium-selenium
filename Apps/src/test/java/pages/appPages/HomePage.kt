@@ -15,6 +15,10 @@ class HomePage: BasePage<HomePage>() {
     @iOSFindBy(id = "Drag")
     private lateinit var dragMenu: MobileElement
 
+    @AndroidFindBy(xpath = "//*[@text='Login']")
+    @iOSFindBy(id = "Login")
+    private lateinit var loginMenu: MobileElement
+
 
     override fun isPageDisplayed(): Boolean? {
         return isElementDisplayed(txtTitle)
@@ -32,8 +36,11 @@ class HomePage: BasePage<HomePage>() {
         return this
     }
 
-    fun clickDragMenu(): HomePage{
-        dragMenu.click()
+    fun clickItemMenu(menu: String): HomePage{
+        when(menu){
+            "Drag" -> dragMenu.click()
+            "Login" -> loginMenu.click()
+        }
         return this
     }
 }

@@ -8,6 +8,8 @@ import io.appium.java_client.ios.IOSDriver
 import io.appium.java_client.remote.AndroidMobileCapabilityType
 import io.appium.java_client.remote.IOSMobileCapabilityType
 import io.appium.java_client.remote.MobileCapabilityType
+import org.openqa.selenium.Dimension
+import org.openqa.selenium.Point
 import org.openqa.selenium.Proxy
 import org.openqa.selenium.WebElement
 import org.openqa.selenium.remote.CapabilityType
@@ -152,6 +154,9 @@ internal open class AppiumController {
         } else {
             webDriver = driverType.getWebDriverObject(desiredCapabilities, isHeadLess)
         }
+        webDriver.manage().window().position = Point(490, 47)
+        webDriver.manage()?.window()?.size =
+            Dimension(webDriver.manage()?.window()?.size?.height!! + 200, webDriver.manage()?.window()?.size?.height!!)
         driverFactoryThread.set(driver)
     }
 
