@@ -1,11 +1,11 @@
 <!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd" >
-<suite name="Chrome Test Suite" parallel="methods" data-provider-thread-count="1">
+<suite name="Chrome Test Suite" verbose="1" parallel="methods" data-provider-thread-count="1">
     <test name="Chrome Test">
         <parameter name="browserName" value="chrome"/>
-        <parameter name="headless" value="true"/>
-        <parameter name="server" value="http://172.16.110.169:4445"/>
+        <parameter name="headless" value="false"/>
+        <parameter name="server" value="http://118.69.61.190:4445"/>
         <classes>
-            <class name="stepdefs.testRunner.WebTestRunner"/>
+            <class name="stepdefs.testRunner.ChromeTestRunner"/>
         </classes>
     </test>
 </suite>

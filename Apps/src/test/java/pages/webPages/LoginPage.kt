@@ -3,11 +3,12 @@ package pages.webPages
 import base.BasePage
 import ml.utils.Constant
 import org.openqa.selenium.By
+import org.openqa.selenium.WebDriver
 import org.openqa.selenium.WebElement
 import org.openqa.selenium.remote.RemoteWebDriver
 import org.openqa.selenium.support.FindBy
 
-class LoginPage : BasePage<LoginPage>() {
+class LoginPage(driver: RemoteWebDriver) : BasePage<LoginPage>() {
 
     @FindBy(css = "input[type=email]")
     private lateinit var inputEmail: WebElement
