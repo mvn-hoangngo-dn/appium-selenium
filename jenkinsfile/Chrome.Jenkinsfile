@@ -1,4 +1,4 @@
-def APP_MODULE = "App"
+def APP_MODULE = "Apps"
 def SUITE_NAME = "suite/ChromeSuite"
 def notify = evaluate readTrusted('notify.groovy')
 def classification = evaluate readTrusted('classification.groovy')

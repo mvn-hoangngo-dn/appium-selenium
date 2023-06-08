@@ -1,4 +1,4 @@
-def APP_MODULE = "CM"
+def APP_MODULE = "Apps"
 def SUITE_NAME = "suite/AndroidSuite"
 def notify = evaluate readTrusted('notify.groovy')
 def classification = evaluate readTrusted('classification.groovy')
