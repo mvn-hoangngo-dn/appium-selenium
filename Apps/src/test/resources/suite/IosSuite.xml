@@ -4,9 +4,9 @@
     <test name="Ios Test" enabled="true">
         <parameter name="platformName" value="iOS"/>
         <parameter name="automationName" value="XCUITest"/>
-        <parameter name="deviceName" value="iPhone 11 Pro"/>
-        <parameter name="udid" value="00008030-001951692220402E"/>
-        <parameter name="platformVersion" value="16"/>
+        <parameter name="deviceName" value="iPhone 12"/>
+        <parameter name="udid" value="00008101-000600E62EB9003A"/>
+        <parameter name="platformVersion" value="14.6"/>
         <parameter name="appWaitDuration" value="30000"/>
         <parameter name="app"
                    value="https://link&amp;com:abcd1234!@appium.kawaru.jp/uploads/production_jp.co.lc.karadakawarunavi_v6.1.9.ipa"/>

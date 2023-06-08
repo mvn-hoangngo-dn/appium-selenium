@@ -20,14 +20,13 @@ class LoginPage : BasePage<LoginPage>() {
     private lateinit var btnLogin: WebElement
 
     override fun open(): LoginPage {
-//        driver.get(Constant.LOGIN_PAGE_URL)
         getWebDriver()?.get(Constant.LOGIN_PAGE_URL)
-        waitForWebElementDisplay(inputEmail)
+        waitForPageDisplayed()
         return this
     }
 
     override fun isPageDisplayed(): Boolean? {
-        return isWebElementDisplayed(inputEmail)
+        return isWebElementDisplayed(btnLogin)
     }
 
     fun waitForPageDisplayed(): LoginPage {
