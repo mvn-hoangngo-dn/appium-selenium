@@ -12,8 +12,6 @@ import pages.webPages.LoginPage
 
 class DemoDefinitions : BaseDefinitions() {
 
-//    private lateinit var loginPage: LoginPage
-//    private lateinit var homePortalPage: HomePortalPage
     private val homePage: HomePage? = PageFactory(HomePage::class.java).create()
     private val dragPage: DragPage? = PageFactory(DragPage::class.java).create()
     private val loginSignupPage: LoginSignupPage? = PageFactory(LoginSignupPage::class.java).create()
@@ -23,10 +21,6 @@ class DemoDefinitions : BaseDefinitions() {
 
     init {
         Given("Open [Login] screen of Web Portal") {
-//            getWebDriver()?.let {
-//                loginPage = LoginPage(it)
-//                loginPage.open()
-//            }
             loginPage?.open()
         }
         And("^Login successfully with email \"([^\"]*)\" and password \"([^\"]*)\"$") { email: String, password: String ->
@@ -34,10 +28,6 @@ class DemoDefinitions : BaseDefinitions() {
         }
         Then("Move to [Home Portal] screen successfully") {
             Thread.sleep(5000)
-//            getWebDriver()?.let {
-//                homePortalPage = HomePortalPage(it)
-//                Assert.assertTrue(homePortalPage.waitForPageDisplayed().isPageDisplayed() ?: false)
-//            }
             Assert.assertTrue(homePortalPage?.waitForPageDisplayed()?.isPageDisplayed() ?: false)
             Thread.sleep(5000)
         }
