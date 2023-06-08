@@ -7,7 +7,7 @@ pipeline {
     stages {
         stage('Run cucumber') {
             agent {
-                label 'ecs'
+                label 'master'
             }
             steps {
                 sh "mvn clean test -DsuiteXmlFile='${SUITE_NAME}'"
