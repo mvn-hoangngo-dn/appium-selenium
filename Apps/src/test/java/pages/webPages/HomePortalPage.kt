@@ -10,7 +10,7 @@ import org.openqa.selenium.remote.RemoteWebDriver
 import org.openqa.selenium.support.FindBy
 
 
-class HomePortalPage(private val driver: RemoteWebDriver) : BasePage<HomePortalPage>() {
+class HomePortalPage : BasePage<HomePortalPage>() {
 
     @FindBy(className = "welcome-message")
     private lateinit var txtWelcomeTitle: WebElement
@@ -20,13 +20,11 @@ class HomePortalPage(private val driver: RemoteWebDriver) : BasePage<HomePortalP
 
 
     override fun open(): HomePortalPage {
-        getWebDriver()?.get(Constant.HOME_PAGE_URL)
-        waitForWebElementDisplay(txtNewsFeed)
         return this
     }
 
     override fun isPageDisplayed(): Boolean? {
-        var txtWelcome = driver.findElement(By.className("welcome-message"))
+        var txtWelcome = getWebDriver()?.findElement(By.className("welcome-message"))
         return isWebElementDisplayed(txtWelcome)
     }
 

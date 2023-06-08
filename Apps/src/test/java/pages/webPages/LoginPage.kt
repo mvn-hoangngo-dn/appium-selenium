@@ -7,7 +7,7 @@ import org.openqa.selenium.WebElement
 import org.openqa.selenium.remote.RemoteWebDriver
 import org.openqa.selenium.support.FindBy
 
-class LoginPage(private val driver: RemoteWebDriver) : BasePage<LoginPage>() {
+class LoginPage : BasePage<LoginPage>() {
 
     @FindBy(css = "input[type=email]")
     private lateinit var inputEmail: WebElement
@@ -19,7 +19,8 @@ class LoginPage(private val driver: RemoteWebDriver) : BasePage<LoginPage>() {
     private lateinit var btnLogin: WebElement
 
     override fun open(): LoginPage {
-        driver.get(Constant.LOGIN_PAGE_URL)
+//        driver.get(Constant.LOGIN_PAGE_URL)
+        getWebDriver()?.get(Constant.LOGIN_PAGE_URL)
         waitForWebElementDisplay(inputEmail)
         return this
     }
@@ -34,19 +35,19 @@ class LoginPage(private val driver: RemoteWebDriver) : BasePage<LoginPage>() {
     }
 
     fun inputEmail(email: String): LoginPage {
-        driver.findElement(By.cssSelector("input[type=email]")).sendKeys(email)
+        getWebDriver()?.findElement(By.cssSelector("input[type=email]"))?.sendKeys(email)
 //        inputEmail.sendKeys(email)
         return this
     }
 
     fun inputPassword(password: String): LoginPage {
-        driver.findElement(By.cssSelector("input[type=password]")).sendKeys(password)
+        getWebDriver()?.findElement(By.cssSelector("input[type=password]"))?.sendKeys(password)
 //        inputPassword.sendKeys(password)
         return this
     }
 
     fun clickLoginBtn(): LoginPage {
-        driver.findElement(By.className("btn")).click()
+        getWebDriver()?.findElement(By.className("btn"))?.click()
 //        btnLogin.click()
         return this
     }
