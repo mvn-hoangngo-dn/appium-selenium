@@ -20,7 +20,7 @@ class DemoDefinitions : BaseDefinitions() {
 
 
     init {
-        Given("Open [Login] screen of Portal") {
+        Given("Open [Login] screen of Web Portal") {
             getWebDriver()?.let {
                 loginPage = LoginPage(it)
                 loginPage.open()
