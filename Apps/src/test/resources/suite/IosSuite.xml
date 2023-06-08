@@ -12,7 +12,7 @@
                    value="https://link&amp;com:abcd1234!@appium.kawaru.jp/uploads/production_jp.co.lc.karadakawarunavi_v6.1.9.ipa"/>
         <parameter name="noReset" value="false"/>
         <classes>
-            <class name="stepdefs.testRunner.TestRunner"/>
+            <class name="stepdefs.testRunner.DemoTestRunner"/>
         </classes>
     </test>
 </suite>
