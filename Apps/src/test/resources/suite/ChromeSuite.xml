@@ -2,7 +2,7 @@
 <suite name="Chrome Test Suite" verbose="1" parallel="methods" data-provider-thread-count="1">
     <test name="Chrome Test">
         <parameter name="browserName" value="chrome"/>
-        <parameter name="headless" value="false"/>
+        <parameter name="headless" value="true"/>
         <parameter name="server" value="http://118.69.61.190:4445"/>
         <classes>
             <class name="stepdefs.testRunner.ChromeTestRunner"/>

@@ -8,7 +8,7 @@ import org.openqa.selenium.WebElement
 import org.openqa.selenium.remote.RemoteWebDriver
 import org.openqa.selenium.support.FindBy
 
-class LoginPage(driver: RemoteWebDriver) : BasePage<LoginPage>() {
+class LoginPage : BasePage<LoginPage>() {
 
     @FindBy(css = "input[type=email]")
     private lateinit var inputEmail: WebElement
