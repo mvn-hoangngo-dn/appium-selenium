@@ -158,17 +158,19 @@ internal open class AppiumController {
         }
         webDriver?.manage()?.window()?.position = Point(490, 47)
         webDriver?.manage()?.window()?.size =
-            Dimension(webDriver?.manage()?.window()?.size?.height!! + 200, webDriver?.manage()?.window()?.size?.height!!)
+            Dimension(
+                webDriver?.manage()?.window()?.size?.height!! + 200,
+                webDriver?.manage()?.window()?.size?.height!!
+            )
         driverFactoryThread.set(driver)
     }
 
     @Synchronized
     @Throws(MalformedURLException::class)
     private fun startDefaultServer() {
-        val xmlTest = XmlTest()
-        println("nhay vao day 0")
-        xmlTest.setParameters(defaultIosParameters())
-        start(xmlTest)
+//        val xmlTest = XmlTest()
+//        xmlTest.setParameters(defaultIosParameters())
+//        start(xmlTest)
     }
 
     private fun parseCapabilities(xmlTest: XmlTest): DesiredCapabilities {
@@ -237,7 +239,7 @@ internal open class AppiumController {
         val parameters: MutableMap<String, String> = HashMap()
         parameters[MobileCapabilityType.BROWSER_NAME] = "chrome"
         parameters["headless"] = "false"
-//        parameters["server"] = "http://172.16.110.169:4445"
+//        parameters["server"] = "http://118.69.61.190:4445"
         parameters["server"] = ""
         if (webContext == null) {
             return parameters
