@@ -234,8 +234,8 @@ internal open class AppiumController {
         val parameters: MutableMap<String, String> = HashMap()
         parameters[MobileCapabilityType.BROWSER_NAME] = "chrome"
         parameters["headless"] = "false"
-//        parameters["server"] = "http://172.16.110.169:4445"
-        parameters["server"] = ""
+        parameters["server"] = "http://118.69.61.190:4445"
+//        parameters["server"] = ""
         if (webContext == null) {
             return parameters
         } else {

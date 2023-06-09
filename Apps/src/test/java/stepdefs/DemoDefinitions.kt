@@ -15,19 +15,26 @@ class DemoDefinitions : BaseDefinitions() {
     private val homePage: HomePage? = PageFactory(HomePage::class.java).create()
     private val dragPage: DragPage? = PageFactory(DragPage::class.java).create()
     private val loginSignupPage: LoginSignupPage? = PageFactory(LoginSignupPage::class.java).create()
-    private val loginPage: LoginPage? = PageFactory(LoginPage::class.java).createWeb()
-    private val homePortalPage: HomePortalPage? = PageFactory(HomePortalPage::class.java).createWeb()
+    private var loginPage: LoginPage? = PageFactory(LoginPage::class.java).create()
+    private var homePortalPage: HomePortalPage? = PageFactory(HomePortalPage::class.java).create()
 
 
     init {
         Given("Open [Login] screen of Web Portal") {
-            loginPage?.open()
+            getWebDriver()?.let {
+                loginPage = LoginPage(it)
+                loginPage?.open()
+            }
+//            loginPage?.open()
         }
         And("^Login successfully with email \"([^\"]*)\" and password \"([^\"]*)\"$") { email: String, password: String ->
             loginPage?.inputEmail(email)?.inputPassword(password)?.clickLoginBtn()
         }
         Then("Move to [Home Portal] screen successfully") {
             Thread.sleep(5000)
+            getWebDriver()?.let {
+                homePortalPage = HomePortalPage(it)
+            }
             Assert.assertTrue(homePortalPage?.waitForPageDisplayed()?.isPageDisplayed() ?: false)
             Thread.sleep(5000)
         }

@@ -1,9 +1,18 @@
 <!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd" >
-<suite name="Chrome Test Suite" verbose="1" parallel="methods" data-provider-thread-count="1">
-    <test name="Chrome Test">
-        <parameter name="browserName" value="chrome"/>
-        <parameter name="headless" value="true"/>
-        <parameter name="server" value="http://118.69.61.190:4445"/>
+<suite name="Android Test Suite" verbose="1">
+    <parameter name="server" value="http://118.69.61.190:4444/wd/hub"/>
+    <test name="Android Test" enabled="true">
+        <parameter name="platformName" value="android"/>
+        <parameter name="automationName" value="UiAutomator2"/>
+        <parameter name="deviceName" value="Galaxy"/>
+        <parameter name="platformVersion" value="11"/>
+        <parameter name="appWaitDuration" value="30000"/>
+        <parameter name="udid" value="R58N22PKRQV"/>
+        <parameter name="appActivity" value="com.wdiodemoapp.MainActivity"/>
+        <parameter name="appPackage" value="com.wdiodemoapp"/>
+        <parameter name="app"
+                   value="https://link&amp;com:abcd1234!@appium.kawaru.jp/uploads/Android-NativeDemoApp-0.4.0.apk"/>
+        <parameter name="noReset" value="false"/>
         <classes>
             <class name="stepdefs.testRunner.ChromeTestRunner"/>
         </classes>

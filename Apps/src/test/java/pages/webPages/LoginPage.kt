@@ -3,12 +3,11 @@ package pages.webPages
 import base.BasePage
 import ml.utils.Constant
 import org.openqa.selenium.By
-import org.openqa.selenium.WebDriver
 import org.openqa.selenium.WebElement
 import org.openqa.selenium.remote.RemoteWebDriver
 import org.openqa.selenium.support.FindBy
 
-class LoginPage : BasePage<LoginPage>() {
+class LoginPage(var driver: RemoteWebDriver) : BasePage<LoginPage>() {
 
     @FindBy(css = "input[type=email]")
     private lateinit var inputEmail: WebElement
@@ -20,7 +19,7 @@ class LoginPage : BasePage<LoginPage>() {
     private lateinit var btnLogin: WebElement
 
     override fun open(): LoginPage {
-        getDriver()?.get(Constant.LOGIN_PAGE_URL)
+        driver.get(Constant.LOGIN_PAGE_URL)
         waitForPageDisplayed()
         return this
     }
@@ -35,22 +34,21 @@ class LoginPage : BasePage<LoginPage>() {
     }
 
     fun inputEmail(email: String): LoginPage {
-//        getWebDriver()?.findElement(By.cssSelector("input[type=email]"))?.sendKeys(email)
-        inputEmail.sendKeys(email)
+        driver.findElement(By.cssSelector("input[type=email]"))?.sendKeys(email)
+//        inputEmail.sendKeys(email)
         return this
     }
 
     fun inputPassword(password: String): LoginPage {
-//        getWebDriver()?.findElement(By.cssSelector("input[type=password]"))?.sendKeys(password)
-        inputPassword.sendKeys(password)
+        driver.findElement(By.cssSelector("input[type=password]"))?.sendKeys(password)
+//        inputPassword.sendKeys(password)
         return this
     }
 
     fun clickLoginBtn(): LoginPage {
-//        getWebDriver()?.findElement(By.className("btn"))?.click()
-        btnLogin.click()
+        driver.findElement(By.className("btn"))?.click()
+//        btnLogin.click()
         return this
     }
-
 
 }
