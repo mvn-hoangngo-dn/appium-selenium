@@ -29,8 +29,8 @@ import java.util.concurrent.TimeUnit
 internal open class AppiumController {
     private val driverFactoryThread = ThreadLocal<AppiumDriver<*>?>()
     private val webDriverFactoryThread = ThreadLocal<RemoteWebDriver>()
-    private lateinit var driver: AppiumDriver<*>
-    private lateinit var webDriver: RemoteWebDriver
+    private var driver: AppiumDriver<*>? = null
+    private var webDriver: RemoteWebDriver? = null
     private var webContext: ITestContext? = null
     private var context: ITestContext? = null
     private val proxyEnabled = java.lang.Boolean.getBoolean("proxyEnabled")
@@ -105,12 +105,14 @@ internal open class AppiumController {
                     )
                 }
             }
-            driver.manage().timeouts().implicitlyWait(Const.TIME_OUT_MIN_ELEMENT.toLong(), TimeUnit.SECONDS)
-            val contextNames = driver.contextHandles
-            for (contextName in contextNames) {
-                if (contextName.contains("WEBVIEW") || contextName.contains("NATIVE_APP")) {
-                    driver.context(contextName)
-                    break
+            driver?.manage()?.timeouts()?.implicitlyWait(Const.TIME_OUT_MIN_ELEMENT.toLong(), TimeUnit.SECONDS)
+            val contextNames = driver?.contextHandles
+            if (contextNames != null) {
+                for (contextName in contextNames) {
+                    if (contextName.contains("WEBVIEW") || contextName.contains("NATIVE_APP")) {
+                        driver?.context(contextName)
+                        break
+                    }
                 }
             }
             driverFactoryThread.set(driver)
@@ -124,7 +126,7 @@ internal open class AppiumController {
             } catch (e: MalformedURLException) {
                 e.printStackTrace()
             }
-            webDriver.manage()?.timeouts()?.implicitlyWait(Const.TIME_OUT_MIN_ELEMENT.toLong(), TimeUnit.SECONDS)
+            webDriver?.manage()?.timeouts()?.implicitlyWait(Const.TIME_OUT_MIN_ELEMENT.toLong(), TimeUnit.SECONDS)
             webDriverFactoryThread.set(webDriver)
             webContext?.setAttribute("driver", webDriver)
         }
@@ -134,7 +136,7 @@ internal open class AppiumController {
      * Stop test session
      */
     fun stop() {
-        driver.quit()
+        driver?.quit()
     }
 
     @Throws(MalformedURLException::class)
@@ -154,9 +156,9 @@ internal open class AppiumController {
         } else {
             webDriver = driverType.getWebDriverObject(desiredCapabilities, isHeadLess)
         }
-        webDriver.manage().window().position = Point(490, 47)
-        webDriver.manage()?.window()?.size =
-            Dimension(webDriver.manage()?.window()?.size?.height!! + 200, webDriver.manage()?.window()?.size?.height!!)
+        webDriver?.manage()?.window()?.position = Point(490, 47)
+        webDriver?.manage()?.window()?.size =
+            Dimension(webDriver?.manage()?.window()?.size?.height!! + 200, webDriver?.manage()?.window()?.size?.height!!)
         driverFactoryThread.set(driver)
     }
 
@@ -164,6 +166,7 @@ internal open class AppiumController {
     @Throws(MalformedURLException::class)
     private fun startDefaultServer() {
         val xmlTest = XmlTest()
+        println("nhay vao day 0")
         xmlTest.setParameters(defaultIosParameters())
         start(xmlTest)
     }
@@ -247,7 +250,7 @@ internal open class AppiumController {
     fun quitWebDriver() {
         webDriverFactoryThread.get()?.quit()
         webDriverFactoryThread.remove()
-        webDriver.quit()
+        webDriver?.quit()
     }
 
     companion object {
