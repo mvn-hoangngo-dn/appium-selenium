@@ -1,6 +1,6 @@
 @Demo
 
-Feature: Demo login app and home Portal web
+Feature: Demo App and Web
 
   @web
   Scenario: Demo Portal Web
