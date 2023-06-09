@@ -20,7 +20,7 @@ class LoginPage : BasePage<LoginPage>() {
     private lateinit var btnLogin: WebElement
 
     override fun open(): LoginPage {
-        getWebDriver()?.get(Constant.LOGIN_PAGE_URL)
+        getDriver()?.get(Constant.LOGIN_PAGE_URL)
         waitForPageDisplayed()
         return this
     }
@@ -35,20 +35,20 @@ class LoginPage : BasePage<LoginPage>() {
     }
 
     fun inputEmail(email: String): LoginPage {
-        getWebDriver()?.findElement(By.cssSelector("input[type=email]"))?.sendKeys(email)
-//        inputEmail.sendKeys(email)
+//        getWebDriver()?.findElement(By.cssSelector("input[type=email]"))?.sendKeys(email)
+        inputEmail.sendKeys(email)
         return this
     }
 
     fun inputPassword(password: String): LoginPage {
-        getWebDriver()?.findElement(By.cssSelector("input[type=password]"))?.sendKeys(password)
-//        inputPassword.sendKeys(password)
+//        getWebDriver()?.findElement(By.cssSelector("input[type=password]"))?.sendKeys(password)
+        inputPassword.sendKeys(password)
         return this
     }
 
     fun clickLoginBtn(): LoginPage {
-        getWebDriver()?.findElement(By.className("btn"))?.click()
-//        btnLogin.click()
+//        getWebDriver()?.findElement(By.className("btn"))?.click()
+        btnLogin.click()
         return this
     }
 

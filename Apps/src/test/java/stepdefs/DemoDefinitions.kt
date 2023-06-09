@@ -15,8 +15,8 @@ class DemoDefinitions : BaseDefinitions() {
     private val homePage: HomePage? = PageFactory(HomePage::class.java).create()
     private val dragPage: DragPage? = PageFactory(DragPage::class.java).create()
     private val loginSignupPage: LoginSignupPage? = PageFactory(LoginSignupPage::class.java).create()
-    private val loginPage: LoginPage? = PageFactory(LoginPage::class.java).create()
-    private val homePortalPage: HomePortalPage? = PageFactory(HomePortalPage::class.java).create()
+    private val loginPage: LoginPage? = PageFactory(LoginPage::class.java).createWeb()
+    private val homePortalPage: HomePortalPage? = PageFactory(HomePortalPage::class.java).createWeb()
 
 
     init {
