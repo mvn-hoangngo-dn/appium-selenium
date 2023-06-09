@@ -2,10 +2,8 @@ package pages.webPages
 
 
 import base.BasePage
-import ml.utils.Constant
 import org.openqa.selenium.By
 import org.openqa.selenium.WebElement
-import org.openqa.selenium.remote.RemoteWebDriver
 
 import org.openqa.selenium.support.FindBy
 
@@ -24,7 +22,7 @@ class HomePortalPage : BasePage<HomePortalPage>() {
     }
 
     override fun isPageDisplayed(): Boolean? {
-        var txtWelcome = getWebDriver()?.findElement(By.className("welcome-messag"))
+        var txtWelcome = getWebDriver()?.findElement(By.className("welcome-message"))
         return isWebElementDisplayed(txtWelcome)
     }
 
