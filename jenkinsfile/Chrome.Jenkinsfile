@@ -4,6 +4,9 @@ def notify = evaluate readTrusted('notify.groovy')
 def classification = evaluate readTrusted('classification.groovy')
 pipeline {
     agent none
+        tools {
+                  maven 'maven 3.8.4'
+                }
     stages {
         stage('Run cucumber') {
             agent {

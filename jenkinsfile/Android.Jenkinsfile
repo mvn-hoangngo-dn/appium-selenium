@@ -1,16 +1,23 @@
 def APP_MODULE = "Apps"
 def SUITE_NAME = "suite/AndroidSuite"
+def REQUIREMENTS = "./database/requirements.txt"
 def notify = evaluate readTrusted('notify.groovy')
 def classification = evaluate readTrusted('classification.groovy')
 pipeline {
     agent none
-
+    tools {
+              maven 'maven 3.8.4'
+            }
     stages {
         stage('Run cucumber') {
             agent {
                 label 'master'
             }
             steps {
+//                 sh "apt update"
+//                 sh "apt -y install python3-pip"
+//                 sh "apt -y install libpq-dev"
+//                 sh "pip3 install -r requirements.txt"
                 sh "mvn clean test -DsuiteXmlFile='${SUITE_NAME}'"
             }
             post {
