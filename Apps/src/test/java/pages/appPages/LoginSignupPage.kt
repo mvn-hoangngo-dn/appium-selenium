@@ -23,7 +23,7 @@ class LoginSignupPage : BasePage<LoginSignupPage>() {
     @iOSFindBy(accessibility = "button-LOGIN")
     private lateinit var btnLogin: MobileElement
 
-    @AndroidFindBy(xpath = "//*[@text='OK']")
+    @AndroidFindBy(xpath = "//*[@text='OKE']")
     @iOSFindBy(xpath = "//*[@name='OK']")
     private lateinit var btnOkPopup: MobileElement
 
