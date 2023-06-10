@@ -168,9 +168,9 @@ internal open class AppiumController {
     @Synchronized
     @Throws(MalformedURLException::class)
     private fun startDefaultServer() {
-//        val xmlTest = XmlTest()
-//        xmlTest.setParameters(defaultIosParameters())
-//        start(xmlTest)
+        val xmlTest = XmlTest()
+        xmlTest.setParameters(defaultIosParameters())
+        start(xmlTest)
     }
 
     private fun parseCapabilities(xmlTest: XmlTest): DesiredCapabilities {
