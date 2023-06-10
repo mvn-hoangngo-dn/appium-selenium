@@ -22,7 +22,7 @@ class HomePortalPage : BasePage<HomePortalPage>() {
     }
 
     override fun isPageDisplayed(): Boolean? {
-        var txtWelcome = getWebDriver()?.findElement(By.className("welcome-messag"))
+        var txtWelcome = getWebDriver()?.findElement(By.className("welcome-message"))
         return isWebElementDisplayed(txtWelcome)
     }
 
