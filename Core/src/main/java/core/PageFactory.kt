@@ -1,6 +1,5 @@
 package core
 
-import io.appium.java_client.MobileDriver
 import io.appium.java_client.ios.IOSDriver
 
 /**
@@ -37,22 +36,6 @@ class PageFactory<T>(private val clazz: Class<T>) {
         return null
     }
 
-    fun createWeb(): T? {
-        try {
-            val newClazz = Class.forName(clazz.name)
-            val classHash = AppiumController.instance.getWebDriver().hashCode().toString() + newClazz.name
-            if (pages.containsKey(classHash)) {
-                return pages[classHash] as T?
-            }
-            println(this.javaClass.simpleName + ": Create instance for " + newClazz.simpleName + ": " + classHash)
-            val `object` = newClazz.getConstructor().newInstance()
-            pages[classHash] = `object`
-            return `object` as? T
-        } catch (e: Exception) {
-            e.printStackTrace()
-        }
-        return null
-    }
 
     companion object {
         private val pages: MutableMap<String, Any> = HashMap()
