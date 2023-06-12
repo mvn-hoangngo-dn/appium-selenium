@@ -23,9 +23,13 @@ class LoginSignupPage : BasePage<LoginSignupPage>() {
     @iOSFindBy(accessibility = "button-LOGIN")
     private lateinit var btnLogin: MobileElement
 
-    @AndroidFindBy(xpath = "//*[@text='OKE']")
+    @AndroidFindBy(xpath = "//*[@text='OK']")
     @iOSFindBy(xpath = "//*[@name='OK']")
     private lateinit var btnOkPopup: MobileElement
+
+    @AndroidFindBy(xpath = "//*[@text='Success']")
+    @iOSFindBy(xpath = "//*[@name='Success']")
+    private lateinit var txtTitlePopup: MobileElement
 
 
     override fun isPageDisplayed(): Boolean? {
@@ -55,5 +59,7 @@ class LoginSignupPage : BasePage<LoginSignupPage>() {
         waitForElementDisplay(btnOkPopup)
         return isElementDisplayed(btnOkPopup)
     }
+
+    fun getTxtTitlePopup(): String = txtTitlePopup.text
 
 }

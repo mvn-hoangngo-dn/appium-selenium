@@ -56,10 +56,12 @@ class DemoDefinitions : BaseDefinitions() {
         And("^Login mobile app with email \"([^\"]*)\" and password \"([^\"]*)\"$") { email: String, password: String ->
             loginSignupPage?.inputEmailAndPassword(email, password)?.clickBtnLogin()
         }
-        Then("Login successfully") {
-            Assert.assertTrue(loginSignupPage?.isPopUpSuccessDisplayed() ?: false)
-            Thread.sleep(2000)
+        Then("Click Ok of popup") {
             loginSignupPage?.clickOkPopUp()
+        }
+        And("^Display Popup with text \"([^\"]*)\"$") { txt: String ->
+            Assert.assertTrue(loginSignupPage?.isPopUpSuccessDisplayed() ?: false)
+            Assert.assertEquals(loginSignupPage?.getTxtTitlePopup(),txt)
         }
     }
 }
