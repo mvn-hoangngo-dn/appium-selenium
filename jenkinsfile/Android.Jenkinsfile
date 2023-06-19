@@ -10,7 +10,7 @@ pipeline {
             }
     stages {
         stage('Run cucumber') {
-                    agent none
+                    agent any
             steps {
 //                 sh "apt update"
 //                 sh "apt -y install python3-pip"
