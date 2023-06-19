@@ -11,6 +11,7 @@ pipeline {
     stages {
         stage('Run cucumber') {
                     agent {
+                        label 'ecs'
                     }
             steps {
 //                 sh "apt update"
